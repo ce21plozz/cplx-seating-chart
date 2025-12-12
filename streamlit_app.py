@@ -224,16 +224,14 @@ if  st.session_state.select == 'Utama':
             data = {1: 'P', 2: 'L', 3: 'L', 4: 'P', 5: 'P', 6: 'P', 7: 'L', 8: 'P', 9: 'L', 10: 'P', 11: 'L', 12: 'P',
                     13: 'L', 14: 'P', 15: 'P', 16: 'L', 17: 'L', 18: 'L', 19: 'P', 20: 'L', 21: 'L', 22: 'L', 23: 'L',
                     24: 'L', 25: 'P', 26: 'L', 27: 'L', 28: 'P', 29: 'P', 30: 'P', 31: 'L', 32: 'P'}
-            #names = st.secrets['x5']
-            names = ["Agnes", "Alfon", "Ricad", "Ara", "Quincy", "Cayla", "Tian", "Aurel", "Dion", "Eva", "Gebung", "Gratia", "Hiero", "Janice", "Kelly", "Joshua", "Marvin", "Mirace", "Naneo", "Honey", "Nelson", "Nicho", "Owen", "Aan", "rosa", "Abner", "Sean", "Sera", "Tascha", "Liona", "Will", "Fanya"]
+            names = st.secrets['x5']
             nama = [name.center(6, '-').title() for name in names]
         # 10.6
         if subclass == 'X-6':
             data = {1: 'P', 2: 'P', 3: 'L', 4: 'L', 5: 'L', 6: 'P', 7: 'L', 8: 'L', 9: 'L', 10: 'P', 11: 'P', 12: 'L',
                     13: 'L', 14: 'L', 15: 'P', 16: 'P', 17: 'L', 18: 'L', 19: 'P', 20: 'P', 21: 'P', 22: 'P', 23: 'L',
                     24: 'L', 25: 'L', 26: 'L', 27: 'P', 28: 'P', 29: 'P', 30: 'P', 31: 'L', 32: 'P'}
-            #names = st.secrets['x6']
-            names = ['abi','agnes','alden','andre','andrew','aurel','yefta','caleb','candra','dinda','chatln','anton','daniel','andra','gaby','sharon','faith','jojo','joyce','kiseki','maria','michel','nathan','otniel','owen','pedro','queen','rachel','kai','talita','destra','yohana']
+            names = st.secrets['x6']
             nama = [name.center(6,'-').title() for name in names]
         def luminance(r, g, b):
             return 0.2126 * r + 0.7152 * g + 0.0722 * b
@@ -543,7 +541,7 @@ if  st.session_state.select == 'Utama':
                     st.html("""<div class="jost-normal" style="margin-bottom: -10px;">Masukin passwordmu</div>""")
                     user_input = st.text_input("", label_visibility="collapsed")
                     if st.button("Submit Passwordmu"):
-                        if user_input != "password":
+                        if user_input != st.secrets["user_pw"]:
                             st.html("""<div class="jost-normal" style="margin-bottom: -10px;color:red;">Password Salah</div>""")
                         else:
                             cookies.set(COOKIE_NAME,"yes",expires=expiry,secure=False,same_site="Lax")
