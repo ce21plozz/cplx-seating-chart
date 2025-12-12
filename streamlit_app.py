@@ -18,7 +18,7 @@ st.markdown("""
 <meta name="viewport" content="width=device-width, initial-scale=1">
 """, unsafe_allow_html=True)
 
-st.set_page_config(page_title="Tempat Duduk Generator", page_icon="icon.jpg")
+st.set_page_config(page_title="Tempat Duduk Generator", page_icon="images/icon.jpg")
 
 st.markdown("""<style>
 @import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Anta&family=Convergence&family=Fredoka:wght@550&family=Patrick+Hand&display=swap');
@@ -458,7 +458,7 @@ if  st.session_state.select == 'Utama':
                 .result {{
                 letter-spacing:-0.07rem;
                 padding:1px .1px;
-                font-size: {0.6 if subclass == "X-5" or subclass == "X-6" else 0.8}rem;
+                font-size: {0.55 if subclass == "X-5" or subclass == "X-6" else 0.85}rem;
                 line-height: -1.9rem;
                 display: flex;
                 justify-content: center;
@@ -536,8 +536,7 @@ if  st.session_state.select == 'Utama':
     if st.button("Buat Seating-Chart baru! 🎲"):
         if subclass != 'Kosong':
             if (subclass == "X-5" or subclass == 'X-6') and login_status != "yes":
-                st.html("""<div class="jost-bold" style='background-color:rgba(68, 135, 235,0.8);opacity:0.9;border-radius:28px 89px 89px 28px;text-align:left;padding:13px;
-                        color: #000000;max-width:78%;border: 2px solid #649ef5'><i>Pencet tombolnya lagi setelah kamu sudah masukin password yang benar</i></div>""")
+                st.html("""<div class="jost-bold" style='background-color:rgba(68, 135, 235,0.8);opacity:0.9;border-radius:28px 89px 89px 28px;text-align:left;padding:13px;font-size:1.2rem;color: #000000;max-width:78%;border: 2px solid #649ef5'><i>Pencet tombolnya lagi setelah memasukkan password yang benar</i></div>""")
                 @st.dialog("Keamanan Privasi")
                 def login():
                     st.html("""<div class="jost-normal" style="margin-bottom: -10px;">Masukin passwordmu</div>""")
