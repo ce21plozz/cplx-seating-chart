@@ -545,8 +545,8 @@ if  st.session_state.select == 'Utama':
                         if user_input != st.secrets["user_pw"]:
                             st.html("""<div class="jost-normal" style="margin-bottom: -10px;color:red;">Password Salah</div>""")
                         else:
-                            cookies.set(COOKIE_NAME,"yes",expires=expiry,secure=True,same_site="Lax")
-                            time.sleep(0.2)
+                            cookies.set(COOKIE_NAME,"yes",expires_days=180,secure=True,same_site="None")
+                            time.sleep(0.4)
                             st.rerun()
                 login()
             else:
