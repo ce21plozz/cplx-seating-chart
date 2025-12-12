@@ -536,6 +536,8 @@ if  st.session_state.select == 'Utama':
     if st.button("Buat Seating-Chart baru! 🎲"):
         if subclass != 'Kosong':
             if (subclass == "X-5" or subclass == 'X-6') and login_status != "yes":
+                st.html("""<div class="jost-bold" style='background-color:rgba(68, 135, 235,0.8);opacity:0.9;border-radius:28px 89px 89px 28px;text-align:left;padding:13px;
+                        color: #000000;max-width:78%;border: 2px solid #649ef5'><i>Pencet tombolnya lagi setelah kamu sudah masukin password yang benar</i></div>""")
                 @st.dialog("Keamanan Privasi")
                 def login():
                     st.html("""<div class="jost-normal" style="margin-bottom: -10px;">Masukin passwordmu</div>""")
@@ -544,7 +546,7 @@ if  st.session_state.select == 'Utama':
                         if user_input != st.secrets["user_pw"]:
                             st.html("""<div class="jost-normal" style="margin-bottom: -10px;color:red;">Password Salah</div>""")
                         else:
-                            cookies.set(COOKIE_NAME,"yes",expires=expiry,secure=False,same_site="Lax")
+                            cookies.set(COOKIE_NAME,"yes",expires=expiry,secure=True,same_site="Lax")
                             time.sleep(0.2)
                             st.rerun()
                 login()
