@@ -378,13 +378,13 @@ if  st.session_state.select == 'Utama':
                 )
         counter = 1
         for h in range(4):
-            random.shuffle(list)
             st.write()
             counter -= 1
             rcount = 0
             rows = ['', '', '', '']
             for i in range(4):
                 for j in range(2):
+                    random.shuffle(list)
                     while True:
                         try:
                             idk = secrets.choice(list)
