@@ -380,10 +380,10 @@ if  st.session_state.select == 'Utama':
 
         def chair_formatter(label,t):
             if t == "L":
-                return f"""<span class="result" style='color: #006aff;margin: 0;'>[{label}]</span>"""
+                return f"""[<span class="result" style='color: #006aff;margin: 0;'>{label}</span>]"""
             if t == "P":
-                return f"""<span class="result" style='color: #e91ef7'>[{label}]</span>"""
-            return f"""<span class="result" style='color: gray'>[{label}]</span>"""
+                return f"""[<span class="result" style='color: #e91ef7'>{label}</span>]"""
+            return f"""[<span class="result" style='color: gray'>{label}</span>]"""
 
         baris = 4
         kolom = 4
