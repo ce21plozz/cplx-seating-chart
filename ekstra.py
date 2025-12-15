@@ -130,10 +130,10 @@ def ekstra():
     .judul {{}}
     
     .kelompok {{
-      border-radius: 20px;
+      border-radius: 15px;
       cursor: pointer;
       width: 215px;
-      border: 5px solid #d1d07d;
+      border: 5px solid #e09151;
       transition: all 0.35s ease;
       margin: 0;
       position: relative;
@@ -141,7 +141,7 @@ def ekstra():
     }}
 
     .kelompok:hover {{
-      border: 5px solid #e09151;
+      border: 5px solid #d1d07d;
       transition: all 0.35s ease;
     }}
 
@@ -196,6 +196,7 @@ def ekstra():
     
     .ultimate-img-wrapper {{
     box-sizing: content-box;
+    margin-bottom: 100px;
     }}
     
     @media (max-width: 700px) {{
