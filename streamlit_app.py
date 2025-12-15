@@ -297,14 +297,14 @@ if  st.session_state.select == 'Utama':
                 border-radius: 6px;
                 text-align: center;
                 font-weight: bold;
-                width: {490 if subclass == "X-5" or subclass == "X-6" else 240}px;
+                width: {31 if subclass == "X-5" or subclass == "X-6" else 15}rem;
                 margin: auto;
                 box-sizing: content-box;
             }}
             
             @media (max-width: 600px) and (min-width: 471px) {{
                 #whiteboard {{
-                    width: {455 if subclass == "X-5" or subclass == "X-6" else 240}px;
+                    width: {28 if subclass == "X-5" or subclass == "X-6" else 15}rem;
                 }}
             }}
             @media (max-width: 470px) {{
@@ -331,7 +331,7 @@ if  st.session_state.select == 'Utama':
                         display: block;
                         width: 50px;
                         margin: 0 auto;
-                        transform: translateX(95px);
+                        transform: translateX(6rem);
                         box-sizing: content-box;
                     ">
                         MejaGuru
@@ -358,7 +358,7 @@ if  st.session_state.select == 'Utama':
                        display: block;
                        width: 110px;
                        margin: 0 auto;
-                       transform: translateX(-192px);
+                       transform: translateX(-12rem);
                    }
                    
                    @media (max-width: 600px) and (min-width: 471px) {
