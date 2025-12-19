@@ -458,7 +458,7 @@ if  st.session_state.select == 'Utama':
                             font-size: {0.8 if subclass == "X-5" or subclass == "X-6" else 0.7}rem;
                             }}
                         @media (min-resolution: 2dppx) {{
-                            .result {{
+                            .kursi {{
                                 font-size: {0.74 if subclass == "X-5" or subclass == "X-6" else 0.7}rem;
                             }}
                         }}
