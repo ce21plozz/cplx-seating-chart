@@ -445,7 +445,11 @@ if  st.session_state.select == 'Utama':
                             line-height: .5rem;
                             font-size: {0.8 if subclass == "X-5" or subclass == "X-6" else 0.7}rem;
                             }}
-                        
+                        @media (min-resolution: 2dppx) {{
+                            .result {{
+                                font-size: {0.77 if subclass == "X-5" or subclass == "X-6" else 0.7}rem;
+                            }}
+                        }}
                         @media (max-width: 600px) and (min-width: 471px){{
                             .result {{
                             letter-spacing:-0.05em;
