@@ -429,6 +429,18 @@ if  st.session_state.select == 'Utama':
                         </div>
 
                         <style>
+                        .kursi {{
+                            white-space: nowrap;
+                            width: 100%;
+                            margin: 0;
+                            font-family: monospace;
+                            letter-spacing:-0.025em;
+                            border-radius: 3px;
+                            padding: 5px .8px;
+                            line-height: .5rem;
+                            font-size: {0.8 if subclass == "X-5" or subclass == "X-6" else 0.7}rem;
+                        }}
+                        
                         .res-container{{
                         display: flex;
                         justify-content: center;
@@ -471,15 +483,27 @@ if  st.session_state.select == 'Utama':
                         }}
                         @media (max-width: 470px) and (min-resolution: 2dppx){{
                             .result {{
-                            letter-spacing:-0.07rem;
-                            padding:1px .1px;
-                            font-size: {0.58 if subclass == "X-5" or subclass == "X-6" else 0.85}rem;
-                            line-height: -1.9rem;
-                            display: flex;
-                            justify-content: space-between;
-                            margin: 0;
-                            width: {'290px' if subclass == "X-5" or subclass == "X-6" else 'auto'};
-                            transform: translateX(-2px);
+                                letter-spacing:-0.07rem;
+                                padding:1px .1px;
+                                font-size: {0.58 if subclass == "X-5" or subclass == "X-6" else 0.85}rem;
+                                line-height: -1.9rem;
+                                display: flex;
+                                justify-content: space-between;
+                                margin: 0;
+                                width: {'290px' if subclass == "X-5" or subclass == "X-6" else 'auto'};
+                                transform: translateX(-2px);
+                            }}
+                            
+                            .kursi {{
+                                letter-spacing:-0.07rem;
+                                padding:1px .1px;
+                                font-size: {0.58 if subclass == "X-5" or subclass == "X-6" else 0.85}rem;
+                                line-height: -1.9rem;
+                                display: flex;
+                                justify-content: space-between;
+                                margin: 0;
+                                width: {'290px' if subclass == "X-5" or subclass == "X-6" else 'auto'};
+                                transform: translateX(0px);
                             }}
                         }}
                         </style>
