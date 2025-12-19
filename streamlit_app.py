@@ -417,7 +417,7 @@ if  st.session_state.select == 'Utama':
                         pair += chair_formatter(nama[i-1] if subclass == "X-6" or subclass == "X-5" else str(i).rjust(2, "0"), data[i])
                     except StopIteration:
                         pair += chair_formatter(nama[i-1] if subclass == "X-6" or subclass == "X-5" else str(i).rjust(2, "0"), data[i])
-                pair = f"""<span class="result" style="border: 1px solid transparent; max-width: 63px;">{pair}</span>"""
+                pair = f"""<span class="kursi" style="border: 1px solid transparent; max-width: 63px;">{pair}</span>"""
                 line.append(pair)
             if subclass == "X-6" or subclass == "X-5":
                 testingvar = "&nbsp;&nbsp;".join(line)
@@ -479,7 +479,7 @@ if  st.session_state.select == 'Utama':
                             justify-content: space-between;
                             margin: 0;
                             width: {'290px' if subclass == "X-5" or subclass == "X-6" else 'auto'};
-                            transform: translateX(0px);
+                            transform: translateX(-2px);
                             }}
                         }}
                         </style>
