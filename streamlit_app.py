@@ -447,7 +447,7 @@ if  st.session_state.select == 'Utama':
                             }}
                         @media (min-resolution: 2dppx) {{
                             .result {{
-                                font-size: {0.77 if subclass == "X-5" or subclass == "X-6" else 0.7}rem;
+                                font-size: {0.74 if subclass == "X-5" or subclass == "X-6" else 0.7}rem;
                             }}
                         }}
                         @media (max-width: 600px) and (min-width: 471px){{
@@ -467,6 +467,19 @@ if  st.session_state.select == 'Utama':
                             justify-content: space-between;
                             margin: 0;
                             width: {'290px' if subclass == "X-5" or subclass == "X-6" else 'auto'};
+                            }}
+                        }}
+                        @media (max-width: 470px) and (min-resolution: 2dppx){{
+                            .result {{
+                            letter-spacing:-0.07rem;
+                            padding:1px .1px;
+                            font-size: {0.58 if subclass == "X-5" or subclass == "X-6" else 0.85}rem;
+                            line-height: -1.9rem;
+                            display: flex;
+                            justify-content: space-between;
+                            margin: 0;
+                            width: {'290px' if subclass == "X-5" or subclass == "X-6" else 'auto'};
+                            transform: translateX(-2px);
                             }}
                         }}
                         </style>
