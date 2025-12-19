@@ -479,7 +479,7 @@ if  st.session_state.select == 'Utama':
                             justify-content: space-between;
                             margin: 0;
                             width: {'290px' if subclass == "X-5" or subclass == "X-6" else 'auto'};
-                            transform: translateX(-2px);
+                            transform: translateX(0px);
                             }}
                         }}
                         </style>
