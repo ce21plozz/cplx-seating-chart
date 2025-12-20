@@ -160,7 +160,7 @@ if  st.session_state.select == 'Utama':
             .judul-utama {{
                 text-align: center;
                 color:white;
-                font-size:2.5rem;
+                font-size:2.4rem;
                 letter-spacing:.2rem;
                 margin-top: .7rem;
                 line-height: 2.35rem;
@@ -259,7 +259,7 @@ if  st.session_state.select == 'Utama':
                 </div>
                 <style>
                 .testbox {{
-                    --myOKLCH : oklch(0.40 0.11 203);
+                    --myOKLCH : oklch(0.3 0.13 240);
                     width: 103%;
                     height: 165px;
                     background-image: linear-gradient(90deg, var(--myOKLCH),black 15%, black 85%, var(--myOKLCH));
@@ -468,6 +468,9 @@ if  st.session_state.select == 'Utama':
                             padding:5px 0;
                             font-size: .8rem;
                             }}
+                            .kursi {{
+                                font-size: {0.7 if subclass == "X-5" or subclass == "X-6" else 0.7}rem;
+                            }}
                         }}
                         @media (max-width: 470px){{
                             .result {{
@@ -550,7 +553,7 @@ if  st.session_state.select == 'Utama':
                 }
                 </style>
             """, unsafe_allow_html=True)
-        st.html(f"""<div class="jost-bold sukses" style='background-color:rgba(0,175,0,0.8);border:2px solid #4bd14b;opacity:0.9;border-radius:20px 99px 99px 20px;text-align:left;padding:12px;
+        st.html(f"""<div class="jost-bold sukses" style='background-color:rgba(0,175,0,0.8);border:2px solid #4bd14b;opacity:0.9;border-radius:20px 99px 99px 20px;text-align:left;padding:12px;margin-top: .8rem;
                         color: #000000; max-width:85%;font-size: .9rem;'><i>Pengacakan Berhasil!!🥳🥳🥳<br>(kamu dah rolling {st.session_state.count} kali)</i></div>
                     
                     <style>
