@@ -440,12 +440,12 @@ if  st.session_state.select == 'Utama':
                             line-height: .5rem;
                             font-size: {0.8 if subclass == "X-5" or subclass == "X-6" else 0.7}rem;
                         }}
-                        
+
                         .res-container{{
                         display: flex;
                         justify-content: center;
                         }}
-                        
+
                         .result {{
                             white-space: nowrap;
                             width: 100%;
@@ -472,16 +472,6 @@ if  st.session_state.select == 'Utama':
                                 font-size: {0.7 if subclass == "X-5" or subclass == "X-6" else 0.7}rem;
                             }}
                         }}
-                        @media (max-width: 600px) and (min-width: 471px) and (min-resolution: 2dppx){{
-                            .result {{
-                            letter-spacing:-0.05em;
-                            padding:5px 0;
-                            font-size: .8rem;
-                            }}
-                            .kursi {{
-                                font-size: {0.7 if subclass == "X-5" or subclass == "X-6" else 0.6}rem;
-                            }}
-                        }}
                         @media (max-width: 470px){{
                             .result {{
                             letter-spacing:-0.07rem;
@@ -506,11 +496,11 @@ if  st.session_state.select == 'Utama':
                                 width: {'290px' if subclass == "X-5" or subclass == "X-6" else 'auto'};
                                 transform: translateX(-2px);
                             }}
-                            
+
                             .kursi {{
                                 letter-spacing:-0.07rem;
                                 padding:1px .1px;
-                                font-size: {0.58 if subclass == "X-5" or subclass == "X-6" else 0.72}rem;
+                                font-size: {0.58 if subclass == "X-5" or subclass == "X-6" else 0.85}rem;
                                 line-height: -1.9rem;
                                 display: flex;
                                 justify-content: space-between;
@@ -520,7 +510,7 @@ if  st.session_state.select == 'Utama':
                             }}
                         }}
                         </style>
-                        
+
                         """, unsafe_allow_html=True)
 
         st.markdown("""
