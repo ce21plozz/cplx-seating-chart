@@ -500,7 +500,7 @@ if  st.session_state.select == 'Utama':
                             .kursi {{
                                 letter-spacing:-0.07rem;
                                 padding:1px .1px;
-                                font-size: {0.58 if subclass == "X-5" or subclass == "X-6" else 0.85}rem;
+                                font-size: {0.58 if subclass == "X-5" or subclass == "X-6" else 0.5}rem;
                                 line-height: -1.9rem;
                                 display: flex;
                                 justify-content: space-between;
