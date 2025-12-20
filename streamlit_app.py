@@ -479,7 +479,7 @@ if  st.session_state.select == 'Utama':
                             font-size: .8rem;
                             }}
                             .kursi {{
-                                font-size: {0.7 if subclass == "X-5" or subclass == "X-6" else 0.65}rem;
+                                font-size: {0.7 if subclass == "X-5" or subclass == "X-6" else 0.6}rem;
                             }}
                         }}
                         @media (max-width: 470px){{
