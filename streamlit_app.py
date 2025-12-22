@@ -629,18 +629,22 @@ elif st.session_state.select == 'Kredit':
 
 btn_css_property = """
                     button {
-                    background-image: linear-gradient(90deg,#383838 -5%,#181818 20%);
-                    margin: .4rem;
-                    border-left: 3px solid #424242;
-                    border-right: 2px solid #424242;
-                    border-top: 2px solid #424242;
-                    border-bottom: 2px solid #424242;
-                    transition: all .25s ease;
-                    color: white;
-                    width: 100px;
-                    border-radius: 14px 50px 50px 14px ;
-                    transition: all 1s ease;
-                    font-weight: bold;
+                        background-image: linear-gradient(90deg,#383838 -5%,#181818 20%);
+                        margin: .4rem;
+                        border-left: 3px solid #424242;
+                        border-right: 2px solid #424242;
+                        border-top: 2px solid #424242;
+                        border-bottom: 2px solid #424242;
+                        transition: all .25s ease;
+                        color: white;
+                        width: 100px;
+                        border-radius: 14px 50px 50px 14px ;
+                        transition: all .35s ease;
+                        font-weight: bold;
+                    }
+                    button:hover {
+                        opacity: 0.7;
+                        transition: all .25s ease;
                     }
                     """
 

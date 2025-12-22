@@ -168,7 +168,8 @@ def rating():
                 display: grid;
                 grid-template-columns: 75px 75px 75px 75px 75px;
                 grid-template-rows: 75px 75px 75px 75px 75px 75px;
-                gap: .5rem;
+                gap: .85rem;
+                column-gap: .6rem;
                 grid-template-areas:
                 "box1 box1 box1 box4 box4"
                 "box1 box1 box1 box4 box4"
