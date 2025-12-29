@@ -389,6 +389,13 @@ if  st.session_state.select == 'Utama':
         kolom = 4
         pasangan = 2
 
+        #EXPERIMENTAL TO DO:
+        # 1. buat cara baru untuk ngrangkai list "order"
+        #   1.1 buat list dgn panjang 32 dimana tiap elemen isinya hanya ""
+        #   1.2 buat 2 list, isi dari listnya itu index dari tempat duduk kelamin
+        #   1.3 pake random.choice untuk ngrangkai
+
+
         boy = [k for k,v in data.items() if v == "L"]
         girl = [k for k, v in data.items() if v == "P"]
         order = []
@@ -583,6 +590,23 @@ if  st.session_state.select == 'Utama':
         if subclass != 'Kosong':
             if (subclass == "X-5" or subclass == 'X-6') and login_status != "yes":
                 st.html("""<div class="jost-bold" style='background-color:rgba(68, 135, 235,0.8);opacity:0.9;border-radius:28px 89px 89px 28px;text-align:left;padding:13px;font-size:1.2rem;color: #000000;max-width:78%;border: 2px solid #649ef5'><i>Pencet tombolnya lagi setelah memasukkan password yang benar</i></div>""")
+                st.markdown("""
+                <style>
+                /* backdrop dialog */
+                [data-testid="stDialog"]::backdrop {
+                    background: rgba(0, 0, 0, 0.6);
+                }
+
+                /* box dialog */
+                [data-testid="stDialog"] > div {
+                    background-color: #050505;
+                    border: 1px solid #00ffff;
+                    box-shadow: 0 0 25px rgba(0,255,255,0.35);
+                    border-radius: 14px;
+                }
+                </style>
+                """, unsafe_allow_html=True)
+
                 @st.dialog("Keamanan Privasi Nama", width="medium")
                 def login():
                     st.html("""<div class="jost-normal" style="margin-bottom: -10px;">Masukin passwordmu</div>""")
