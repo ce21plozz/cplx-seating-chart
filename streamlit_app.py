@@ -583,9 +583,9 @@ if  st.session_state.select == 'Utama':
         if subclass != 'Kosong':
             if (subclass == "X-5" or subclass == 'X-6') and login_status != "yes":
                 st.html("""<div class="jost-bold" style='background-color:rgba(68, 135, 235,0.8);opacity:0.9;border-radius:28px 89px 89px 28px;text-align:left;padding:13px;font-size:1.2rem;color: #000000;max-width:78%;border: 2px solid #649ef5'><i>Pencet tombolnya lagi setelah memasukkan password yang benar</i></div>""")
-                @st.dialog("Keamanan Privasi")
+                @st.dialog("Keamanan Privasi Nama", width="medium")
                 def login():
-                    st.html("""<div class="jost-normal" style="margin-bottom: -10px;">Masukin passwordmu (minta password ke ceplox21(saya) kalo mau )</div>""")
+                    st.html("""<div class="jost-normal" style="margin-bottom: -10px;">Masukin passwordmu</div>""")
                     user_input = st.text_input("", label_visibility="collapsed")
                     if st.button("Submit Passwordmu"):
                         if user_input != st.secrets["user_pw"]:
