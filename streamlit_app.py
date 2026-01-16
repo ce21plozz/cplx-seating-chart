@@ -195,7 +195,7 @@ if  st.session_state.select == 'Utama':
             </style>
             """)
 
-    def seatgen(subclass):
+    def seatgen(subclass, generation_type):
         list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
                 30, 31, 32]
         # 10.1
@@ -277,7 +277,7 @@ if  st.session_state.select == 'Utama':
                 }}
                 @media (max-width: 470px) {{
                     .testbox {{
-                        height: {'155px' if subclass == "X-5" or subclass == "X-6" else "150px"};
+                        height: {'155px' if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else "150px"};
                     }}
                 }}
                 
@@ -297,19 +297,19 @@ if  st.session_state.select == 'Utama':
                 border-radius: 6px;
                 text-align: center;
                 font-weight: bold;
-                width: {31 if subclass == "X-5" or subclass == "X-6" else 15}rem;
+                width: {31 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 15.5}rem;
                 margin: auto;
                 box-sizing: content-box;
             }}
             
             @media (max-width: 600px) and (min-width: 471px) {{
                 #whiteboard {{
-                    width: {28 if subclass == "X-5" or subclass == "X-6" else 15}rem;
+                    width: {28 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 15.5}rem;
                 }}
             }}
             @media (max-width: 470px) {{
                 #whiteboard {{
-                    width: {290 if subclass == "X-5" or subclass == "X-6" else 240}px;
+                    width: {290 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 240}px;
                 }}
             }}
             </style>
@@ -341,12 +341,12 @@ if  st.session_state.select == 'Utama':
                 )
             case 'X-5' | 'X-6':
                 st.markdown(
-                    """
+                    f"""
                    <div id="mejaguru">
                        Meja Guru
                    </div>
                    <style>
-                   #mejaguru {
+                   #mejaguru {{
                        background-color: #ba6900;
                        border: 2px solid #8f5304;
                        color: black;
@@ -354,25 +354,26 @@ if  st.session_state.select == 'Utama':
                        border-radius: 5px;
                        text-align: center;
                        font-weight: bold;
-                       font-size: 0.75rem;
+                       font-size: {0.75 if generation_type == "Nama" else 0.7}rem;
                        display: block;
-                       width: 110px;
+                       width: {110 if generation_type == "Nama" else 65}px;
                        margin: 0 auto;
-                       transform: translateX(-12rem);
-                   }
+                       transform: translateX({-12 if generation_type == "Nama" else -6}rem);
+                   }}
                    
-                   @media (max-width: 600px) and (min-width: 471px) {
-                    #mejaguru {
-                        transform: translateX(-175px);
-                        width: 100px;
-                    }
-                   }
-                   @media (max-width: 470px) {
-                    #mejaguru {
-                        transform: translateX(-112px);
-                        width: 68px;
-                    }
-                   }
+                   @media (max-width: 600px) and (min-width: 471px) {{
+                    #mejaguru {{
+                        transform: translateX({"-175px" if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else "-6rem"});
+                        width: {"100px" if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else "60px"};
+                    }}
+                   }}
+                   @media (max-width: 470px) {{
+                    #mejaguru {{
+                        transform: translateX({"-112px" if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else "-6rem"});
+                        width: {'70px' if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else "55px"};
+                        font-size: {0.7 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.63}rem;
+                    }}
+                   }}
                    </style>
                    """,
                     unsafe_allow_html=True
@@ -388,13 +389,6 @@ if  st.session_state.select == 'Utama':
         baris = 4
         kolom = 4
         pasangan = 2
-
-        #EXPERIMENTAL TO DO:
-        # 1. buat cara baru untuk ngrangkai list "order"
-        #   1.1 buat list dgn panjang 32 dimana tiap elemen isinya hanya ""
-        #   1.2 buat 2 list, isi dari listnya itu index dari tempat duduk kelamin
-        #   1.3 pake random.choice untuk ngrangkai
-
 
         boy = [k for k,v in data.items() if v == "L"]
         girl = [k for k, v in data.items() if v == "P"]
@@ -421,18 +415,15 @@ if  st.session_state.select == 'Utama':
                 for _ in range(pasangan):
                     try:
                         i = next(it)
-                        pair += chair_formatter(nama[i-1] if subclass == "X-6" or subclass == "X-5" else str(i).rjust(2, "0"), data[i])
+                        pair += chair_formatter(nama[i-1] if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else str(i).rjust(2, "0"), data[i])
                     except StopIteration:
-                        pair += chair_formatter(nama[i-1] if subclass == "X-6" or subclass == "X-5" else str(i).rjust(2, "0"), data[i])
+                        pair += chair_formatter(nama[i-1] if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else str(i).rjust(2, "0"), data[i])
                 pair = f"""<span class="kursi" style="border: 1px solid transparent; max-width: 63px;">{pair}</span>"""
                 line.append(pair)
-            if subclass == "X-6" or subclass == "X-5":
-                testingvar = "&nbsp;&nbsp;".join(line)
-            else:
-                testingvar = "&nbsp;&nbsp;".join(line)
+            seat_space = "&nbsp;&nbsp;".join(line)
             st.markdown(f"""
                         <div class="res-container" style="text-align:center;max-width: 100%; margin: 0;"> 
-                            <span class="result" style="max-width: auto;">{testingvar}</span>
+                            <span class="result" style="max-width: auto;">{seat_space}</span>
                         </div>
 
                         <style>
@@ -445,7 +436,7 @@ if  st.session_state.select == 'Utama':
                             border-radius: 3px;
                             padding: 5px .8px;
                             line-height: .5rem;
-                            font-size: {0.8 if subclass == "X-5" or subclass == "X-6" else 0.7}rem;
+                            font-size: {0.8 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.7}rem;
                         }}
 
                         .res-container{{
@@ -462,11 +453,11 @@ if  st.session_state.select == 'Utama':
                             border-radius: 3px;
                             padding: 5px .8px;
                             line-height: .5rem;
-                            font-size: {0.8 if subclass == "X-5" or subclass == "X-6" else 0.7}rem;
+                            font-size: {0.8 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.7}rem;
                             }}
                         @media (min-resolution: 2dppx) {{
                             .kursi {{
-                                font-size: {0.74 if subclass == "X-5" or subclass == "X-6" else 0.7}rem;
+                                font-size: {0.74 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.7}rem;
                             }}
                         }}
                         @media (max-width: 600px) and (min-width: 471px){{
@@ -476,43 +467,45 @@ if  st.session_state.select == 'Utama':
                             font-size: .8rem;
                             }}
                             .kursi {{
-                                font-size: {0.7 if subclass == "X-5" or subclass == "X-6" else 0.7}rem;
+                                font-size: {0.7 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.7}rem;
                             }}
                         }}
                         @media (max-width: 470px){{
                             .result {{
                             letter-spacing:-0.07rem;
                             padding:1px .1px;
-                            font-size: {0.58 if subclass == "X-5" or subclass == "X-6" else 0.85}rem;
+                            font-size: {0.58 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.85}rem;
                             line-height: -1.9rem;
                             display: flex;
                             justify-content: space-between;
                             margin: 0;
-                            width: {'290px' if subclass == "X-5" or subclass == "X-6" else 'auto'};
+                            width: {'290px' if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 'auto'};
                             }}
                         }}
                         @media (max-width: 470px) and (min-resolution: 2dppx){{
                             .result {{
                                 letter-spacing:-0.07rem;
                                 padding:1px .1px;
-                                font-size: {0.58 if subclass == "X-5" or subclass == "X-6" else 0.85}rem;
+                                font-size: {0.58 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.85}rem;
                                 line-height: -1.9rem;
                                 display: flex;
                                 justify-content: space-between;
                                 margin: 0;
-                                width: {'290px' if subclass == "X-5" or subclass == "X-6" else 'auto'};
+                                width: {'290px' if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 'auto'};
                                 transform: translateX(-2px);
                             }}
 
                             .kursi {{
                                 letter-spacing:-0.07rem;
+                                text-align: center;
+                                align-items: center;
                                 padding:1px .1px;
-                                font-size: {0.58 if subclass == "X-5" or subclass == "X-6" else 0.78}rem;
+                                font-size: {0.58 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.78}rem;
                                 line-height: -1.9rem;
                                 display: flex;
                                 justify-content: space-between;
                                 margin: 0;
-                                width: {'290px' if subclass == "X-5" or subclass == "X-6" else 'auto'};
+                                width: {'290px' if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 'auto'};
                                 transform: translateX(0px);
                             }}
                         }}
@@ -586,7 +579,22 @@ if  st.session_state.select == 'Utama':
     subclass = st.selectbox('', ['Kosong', 'X-1', 'X-2', 'X-3', 'X-4', 'X-5', 'X-6'], label_visibility="collapsed")
     if 'count' not in st.session_state:
         st.session_state.count = 1
-    if st.button("Buat Seating-Chart baru! 🎲"):
+    with st.container(horizontal=False,horizontal_alignment="center",vertical_alignment="center"):
+        if subclass in ['X-5', 'X-6']:
+            st.html("""
+                            <div id="label-jenis-generate" class="jost-normal" style="letter-spacing:.025rem;">Pilih Jenis Hasil Seating-Chart</div>
+                            <style>
+                                #label-jenis-generate {
+                                    background-color: transparent;
+                                    text-align: center;
+                                    font-size: 1rem;
+                                    margin-bottom: -0.5rem;
+                                }
+                            </style>
+                            """)
+            result_type = st.segmented_control(label="", options=["Absen", "Nama"], label_visibility="collapsed", selection_mode="single")
+        seatgen_button = st.button("Buat Seating-Chart baru! 🎲")
+    if seatgen_button:
         if subclass != 'Kosong':
             if (subclass == "X-5" or subclass == 'X-6') and login_status != "yes":
                 st.html("""<div class="jost-bold" style='background-color:rgba(68, 135, 235,0.8);opacity:0.9;border-radius:28px 89px 89px 28px;text-align:left;padding:13px;font-size:1.2rem;color: #000000;max-width:78%;border: 2px solid #649ef5'><i>Pencet tombolnya lagi setelah memasukkan password yang benar</i></div>""")
@@ -615,20 +623,26 @@ if  st.session_state.select == 'Utama':
                         if user_input != st.secrets["user_pw"]:
                             st.html("""<div class="jost-normal" style="margin-bottom: -10px;color:red;">Password Salah</div>""")
                         else:
-                            cookies.set(COOKIE_NAME,"yes",expires=expiry,secure=True,same_site="None")
+                            cookies.set(COOKIE_NAME,"yes",expires=expiry,secure=True,same_site="lax")
                             time.sleep(0.4)
                             st.rerun()
                 login()
+            elif subclass in ["X-5", "X-6"] and result_type == None:
+                st.markdown("""<div class="jost-bold" style='background-color:rgba(242,210,0,0.8);opacity:0.9;border-radius:28px 89px 89px 28px;text-align:left;padding:13px; color: #000000;font-size: 1rem;border:2px solid #ffec70;transition: all .25s ease;max-width: 75%'><i>Pilih opsi untuk jenis hasilnya dulu</i></div>""", unsafe_allow_html=True)
             else:
-                seatgen(subclass)
-                st.session_state.count += 1
+                if subclass in ["X-5", "X-6"]:
+                    seatgen(subclass, result_type)
+                    st.session_state.count += 1
+                else:
+                    seatgen(subclass, "unused")
+                    st.session_state.count += 1
         elif subclass == 'Kosong':
             st.markdown("""<div class="jost-bold" style='background-color:rgba(255,0,0,0.8);opacity:0.9;border-radius:28px 89px 89px 28px;text-align:left;padding:13px;
                         color: #000000;max-width:84%;font-size: .9rem;border: 2px solid #fc5858;transition: all .25s ease;'><i>Pilih kelas dulu lah kocak... 😐</i></div>""",
                         unsafe_allow_html=True)
     else:
         st.markdown(
-            """<div class="jost-bold" style='background-color:rgba(68, 135, 235,0.8);opacity:0.9;border-radius:28px 89px 89px 28px;text-align:left;padding:13px;font-size:1.2rem;color: #000000;max-width:60%;font-size: .9rem;border: 2px solid #649ef5;transition: all .25s ease;'><i>Pilih Kelasmu! 📚</i></div>""",unsafe_allow_html=True)
+            """<div class="jost-bold" style='background-color:rgba(68, 135, 235,0.8);opacity:0.9;border-radius:28px 89px 89px 28px;text-align:left;padding:13px;font-size:1.5rem;color: #000000;max-width:50%;font-size: .9rem;border: 2px solid #649ef5;transition: all .25s ease;'><i>Pilih Kelasmu! 📚</i></div>""",unsafe_allow_html=True)
 
     st.html(""" 
             <style>
@@ -653,22 +667,29 @@ elif st.session_state.select == 'Kredit':
 
 btn_css_property = """
                     button {
+                        --light-green:#45964f;
                         background-image: linear-gradient(90deg,#383838 -5%,#181818 20%);
                         margin: .4rem;
-                        border-left: 3px solid #424242;
+                        border-left: 2px solid #424242;
                         border-right: 2px solid #424242;
                         border-top: 2px solid #424242;
                         border-bottom: 2px solid #424242;
                         transition: all .25s ease;
                         color: white;
                         width: 100px;
-                        border-radius: 14px 50px 50px 14px ;
+                        border-radius: 15px 50px 50px 15px ;
                         transition: all .35s ease;
                         font-weight: bold;
                     }
                     button:hover {
-                        opacity: 0.7;
-                        transition: all .25s ease;
+                        opacity: .7;
+                    }
+                    button:active {
+                        opacity: 1;
+                        transition: all .1s ease;
+                        border-color: var(--light-green);
+                        color: var(--light-green);
+                        background-image: linear-gradient(90deg,var(--light-green) -1%,#181818 27%);
                     }
                     """
 
