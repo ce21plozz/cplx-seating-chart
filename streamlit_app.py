@@ -232,6 +232,7 @@ if  st.session_state.select == 'Utama':
                     24: 'L', 25: 'L', 26: 'L', 27: 'P', 28: 'P', 29: 'P', 30: 'P', 31: 'L', 32: 'P'}
             names = st.secrets['x6']
             nama = [name.center(6,'-').title() for name in names]
+        HasNameData = ['X-5', 'X-6']
         def luminance(r, g, b):
             return 0.2126 * r + 0.7152 * g + 0.0722 * b
         def darkener(r, g, b, faktor):
@@ -277,7 +278,7 @@ if  st.session_state.select == 'Utama':
                 }}
                 @media (max-width: 470px) {{
                     .testbox {{
-                        height: {'155px' if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else "150px"};
+                        height: {'155px' if subclass in HasNameData and generation_type == "Nama" else "150px"};
                     }}
                 }}
                 
@@ -297,19 +298,19 @@ if  st.session_state.select == 'Utama':
                 border-radius: 6px;
                 text-align: center;
                 font-weight: bold;
-                width: {31 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 15.5}rem;
+                width: {31 if subclass in HasNameData and generation_type == "Nama" else 15.5}rem;
                 margin: auto;
                 box-sizing: content-box;
             }}
             
             @media (max-width: 600px) and (min-width: 471px) {{
                 #whiteboard {{
-                    width: {28 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 15.5}rem;
+                    width: {28 if subclass in HasNameData and generation_type == "Nama" else 15.5}rem;
                 }}
             }}
             @media (max-width: 470px) {{
                 #whiteboard {{
-                    width: {290 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 240}px;
+                    width: {290 if subclass in HasNameData and generation_type == "Nama" else 240}px;
                 }}
             }}
             </style>
@@ -363,15 +364,15 @@ if  st.session_state.select == 'Utama':
                    
                    @media (max-width: 600px) and (min-width: 471px) {{
                     #mejaguru {{
-                        transform: translateX({"-175px" if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else "-6rem"});
-                        width: {"100px" if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else "60px"};
+                        transform: translateX({"-175px" if subclass in HasNameData and generation_type == "Nama" else "-6rem"});
+                        width: {"100px" if subclass in HasNameData and generation_type == "Nama" else "60px"};
                     }}
                    }}
                    @media (max-width: 470px) {{
                     #mejaguru {{
-                        transform: translateX({"-112px" if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else "-6rem"});
-                        width: {'70px' if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else "55px"};
-                        font-size: {0.7 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.63}rem;
+                        transform: translateX({"-112px" if subclass in HasNameData and generation_type == "Nama" else "-6rem"});
+                        width: {'70px' if subclass in HasNameData and generation_type == "Nama" else "55px"};
+                        font-size: {0.7 if subclass in HasNameData and generation_type == "Nama" else 0.63}rem;
                     }}
                    }}
                    </style>
@@ -415,9 +416,9 @@ if  st.session_state.select == 'Utama':
                 for _ in range(pasangan):
                     try:
                         i = next(it)
-                        pair += chair_formatter(nama[i-1] if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else str(i).rjust(2, "0"), data[i])
+                        pair += chair_formatter(nama[i-1] if subclass in HasNameData and generation_type == "Nama" else str(i).rjust(2, "0"), data[i])
                     except StopIteration:
-                        pair += chair_formatter(nama[i-1] if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else str(i).rjust(2, "0"), data[i])
+                        pair += chair_formatter(nama[i-1] if subclass in HasNameData and generation_type == "Nama" else str(i).rjust(2, "0"), data[i])
                 pair = f"""<span class="kursi" style="border: 1px solid transparent; max-width: 63px;">{pair}</span>"""
                 line.append(pair)
             seat_space = "&nbsp;&nbsp;".join(line)
@@ -436,7 +437,7 @@ if  st.session_state.select == 'Utama':
                             border-radius: 3px;
                             padding: 5px .8px;
                             line-height: .5rem;
-                            font-size: {0.8 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.7}rem;
+                            font-size: {0.8 if subclass in HasNameData and generation_type == "Nama" else 0.7}rem;
                         }}
 
                         .res-container{{
@@ -453,11 +454,11 @@ if  st.session_state.select == 'Utama':
                             border-radius: 3px;
                             padding: 5px .8px;
                             line-height: .5rem;
-                            font-size: {0.8 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.7}rem;
+                            font-size: {0.8 if subclass in HasNameData and generation_type == "Nama" else 0.7}rem;
                             }}
                         @media (min-resolution: 2dppx) {{
                             .kursi {{
-                                font-size: {0.74 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.7}rem;
+                                font-size: {0.74 if subclass in HasNameData and generation_type == "Nama" else 0.7}rem;
                             }}
                         }}
                         @media (max-width: 600px) and (min-width: 471px){{
@@ -467,31 +468,31 @@ if  st.session_state.select == 'Utama':
                             font-size: .8rem;
                             }}
                             .kursi {{
-                                font-size: {0.7 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.7}rem;
+                                font-size: {0.7 if subclass in HasNameData and generation_type == "Nama" else 0.7}rem;
                             }}
                         }}
                         @media (max-width: 470px){{
                             .result {{
                             letter-spacing:-0.07rem;
                             padding:1px .1px;
-                            font-size: {0.58 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.85}rem;
+                            font-size: {0.58 if subclass in HasNameData and generation_type == "Nama" else 0.85}rem;
                             line-height: -1.9rem;
                             display: flex;
                             justify-content: space-between;
                             margin: 0;
-                            width: {'290px' if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 'auto'};
+                            width: {'290px' if subclass in HasNameData and generation_type == "Nama" else 'auto'};
                             }}
                         }}
                         @media (max-width: 470px) and (min-resolution: 2dppx){{
                             .result {{
                                 letter-spacing:-0.07rem;
                                 padding:1px .1px;
-                                font-size: {0.58 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.85}rem;
+                                font-size: {0.58 if subclass in HasNameData and generation_type == "Nama" else 0.85}rem;
                                 line-height: -1.9rem;
                                 display: flex;
                                 justify-content: space-between;
                                 margin: 0;
-                                width: {'290px' if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 'auto'};
+                                width: {'290px' if subclass in HasNameData and generation_type == "Nama" else 'auto'};
                                 transform: translateX(-2px);
                             }}
 
@@ -500,12 +501,12 @@ if  st.session_state.select == 'Utama':
                                 text-align: center;
                                 align-items: center;
                                 padding:1px .1px;
-                                font-size: {0.58 if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 0.78}rem;
+                                font-size: {0.58 if subclass in HasNameData and generation_type == "Nama" else 0.78}rem;
                                 line-height: -1.9rem;
                                 display: flex;
                                 justify-content: space-between;
                                 margin: 0;
-                                width: {'290px' if (subclass == "X-5" and generation_type == "Nama") or (subclass == "X-6" and generation_type == "Nama") else 'auto'};
+                                width: {'290px' if subclass in HasNameData and generation_type == "Nama" else 'auto'};
                                 transform: translateX(0px);
                             }}
                         }}
