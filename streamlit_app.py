@@ -251,6 +251,9 @@ if  st.session_state.select == 'Utama':
             result_color = 'black'
         else:
             result_color = 'white'
+        if subclass in HasNameData and generation_type == "Nama":
+            st.html(
+                """<div class="jost-bold" style='background-color:rgba(68, 135, 235,0.8);opacity:0.9;border-radius:28px 89px 89px 28px;text-align:left;padding:13px;font-size:1.2rem;color: #000000;max-width:78%;font-size: .9rem;border: 2px solid #649ef5'><i>Kalau nama ga kebaca, miringkan atau tidurkan HPmu (untuk HP/Mobile)</i></div>""")
         st.markdown(
             f"""<div style="font-size: 1rem;font-family: Times New Roman;text-align:center;font-weight:bold;background-color: rgb({r},{g},{b});border-radius:8px;padding:0.05px;color:{result_color};margin: 1.15em 1em;border: .2rem solid rgb({border[0]},{border[1]},{border[2]});box-shadow: 0 0 10px 3px rgb({shadow[0]},{shadow[1]},{shadow[2]});transition: all .25s ease;">Tata Letak Tempat Duduk Baru!</div>""",
             unsafe_allow_html=True)
@@ -565,10 +568,6 @@ if  st.session_state.select == 'Utama':
                     }}
                     </style>
                     """)
-        if subclass == "X-5" or subclass == "X-6":
-            st.html(
-                """<div class="jost-bold" style='background-color:rgba(68, 135, 235,0.8);opacity:0.9;border-radius:28px 89px 89px 28px;text-align:left;padding:13px;font-size:1.2rem;color: #000000;max-width:78%;font-size: .9rem;border: 2px solid #649ef5'><i>Kalau nama ga kebaca, miringkan atau tidurkan HPmu (untuk HP/Mobile)</i></div>""")
-
     st.markdown(
         """
         <div class="jost-normal" style = "color:white;margin: 1.55rem .1rem .3rem .2rem;font-size:1.1rem">
