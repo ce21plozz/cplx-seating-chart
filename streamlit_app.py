@@ -200,7 +200,7 @@ if  st.session_state.select == 'Utama':
             
             <div class="pindah-web">
                 <div class="fredoka-e">Web ini ga bakal dilanjutin lagi, tapi... coba kunjungin web baru ini deh<br></div>
-                <a href="https://82280abb.o-matic.pages.dev/" target="_blank" rel="noopener noreferrer">https://82280abb.o-matic.pages.dev/</a>
+                <a href="https://o-matic.pages.dev/" target="_blank" rel="noopener noreferrer">https://o-matic.pages.dev/</a>
             </div>
             <style>
                 .pindah-web {
@@ -227,6 +227,7 @@ if  st.session_state.select == 'Utama':
                     color: blue;
                     font-weight: bold;
                     transition: 0.25s ease;
+                    text-align: center;
                 }
                 .pindah-web a:hover {
                     color: white;
