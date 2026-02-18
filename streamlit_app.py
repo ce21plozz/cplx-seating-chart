@@ -196,6 +196,49 @@ if  st.session_state.select == 'Utama':
             """)
 
     def seatgen(subclass, generation_type):
+        st.html("""
+            
+            <div class="pindah-web">
+                <div class="fredoka-e">Web ini ga bakal dilanjutin lagi, tapi... coba kunjungin web baru ini deh<br></div>
+                <a href="https://82280abb.o-matic.pages.dev/" target="_blank" rel="noopener noreferrer">https://82280abb.o-matic.pages.dev/</a>
+            </div>
+            <style>
+                .pindah-web {
+                    height: auto;
+                    width: 80%;
+                    border: 2px solid black;
+                    padding: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: black;
+                    border-radius: 1rem;
+                    flex-direction: column;
+                    font-size: 1.25rem;
+                    margin: 0 auto;
+                    background: #2A7B9B;
+                    background: linear-gradient(90deg, rgba(42, 123, 155, 0.7) 0%, rgba(255, 94, 94, 0.7) 35%, rgba(87, 199, 133, 0.7) 63%, rgba(237, 221, 83, 0.7) 100%);
+                }
+                .pindah-web div {
+                    font-size: 1.35rem;
+                    text-align: center;
+                }
+                .pindah-web a {
+                    color: blue;
+                    font-weight: bold;
+                    transition: 0.25s ease;
+                }
+                .pindah-web a:hover {
+                    color: white;
+                }
+                .pindah-web a:active {
+                    color: limegreen;
+                }
+                
+            </style>
+            
+        """)
+        st.stop()
         list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
                 30, 31, 32]
         # 10.1
